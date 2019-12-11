@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+ <title>TODO</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <script type="text/javascript" src="/main.js"></script>
+
+ <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+    <table>
+     <tr>
+     <th>Title</th>
+     <th>Price</th>
+     <th>Action</th>
+     </tr>
+     <div class="row" th:each="order : ${orderList}">
+      <tr>
+      <td><p class="nameOrd" th:text="${order.name}">Text</p></td>
+      <td><p class="priceOrd" th:text="${order.price}">1</p></td>
+      <td><a th:id="${order.id}" th:href="${'http://localhost:8080/delete/'+order.id}" class="btn-delete">Delete this item</a></td>
+       <td><button th:attr="data-order-id=${order.id}" class="btn btn-sm btn-secondary btn-status">not</button></td>
+       <td></td>
+      </tr>
+     </div>
+     <a href="http://localhost:8080/add" class="btn-add">Add new item</a>
+    </table>
+
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">-->
+</body>
+</html>
